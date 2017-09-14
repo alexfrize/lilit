@@ -1,0 +1,8 @@
+# dependencies
+/node_modules
+
+#Libs/material
+/_l
+
+#unnesessary icons
+_icons_and_material
