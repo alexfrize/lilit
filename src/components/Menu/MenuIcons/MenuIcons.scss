@@ -1,0 +1,37 @@
+@import '../../../scss/breakpoints.scss';
+
+.menu-icons {
+  margin-bottom: 30px;
+  margin-left: 0;
+
+  @include breakpoint($lgSize) {
+    margin-left: 10px;
+  }
+
+  table {
+    display: table;
+    margin: 0 auto;
+
+    @include breakpoint($smSize) {
+      margin: 0;
+    }
+
+    tr > td {
+      width: 30%;
+      text-align: center;
+
+      @include breakpoint($smSize) {
+        text-align: left;
+      }
+
+      img {
+        transition: 0.5s;
+        width: 24px;
+        opacity: 1;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@import '../../scss/breakpoints.scss';
+
+.Menu {
+  .logo-container {
+    text-align: center;
+
+    .logo-img {
+      width: 60px;
+    }
+  }
+
+  .menu-title {
+    text-transform: uppercase;
+
+    font: {
+      family: 'OratorStd';
+      size: 24px;
+    }
+    text-align: center;
+
+    span {
+      display: block;
+      font-size: 16px;
+    }
+  }
+
+  .menu-items {
+    width: 180px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    ul {
+      text-align: center;
+
+      @include breakpoint($smSize) {
+        text-align: left;
+      }
+      padding-left: 0px;
+
+      @include breakpoint($lgSize) {
+        padding-left: 10px;
+      }
+
+      list-style: none;
+
+      li {
+        font: {
+          family: 'OratorStd';
+          size: 18px;
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+          transition: 0.5s;
+          text-transform: uppercase;
+          color: black;
+          text-decoration: none;
+          &:hover,
+          &:active,
+          &:focus {
+            cursor: pointer;
+            color: #b0b0b0;
+          }
+          &.active {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
