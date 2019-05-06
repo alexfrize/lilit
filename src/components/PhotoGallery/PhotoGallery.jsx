@@ -83,10 +83,7 @@ class PhotoGallery extends Component {
       <div className="PhotoGallery">
         {this.state.photos && (
           <React.Fragment>
-            <Gallery
-              photos={this.props.galleries[this.props.activeGallery]}
-              onClick={this.openLightbox}
-            />
+            <Gallery photos={this.state.photos} onClick={this.openLightbox} />
             <Lightbox
               images={this.state.photos}
               onClose={this.closeLightbox}
