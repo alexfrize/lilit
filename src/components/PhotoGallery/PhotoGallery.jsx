@@ -39,7 +39,7 @@ class PhotoGallery extends Component {
   /* ************************************************** */
 
   componentDidMount() {
-    this.props.loadGallery(menuItems[0]);
+    this.props.loadGallery(menuItems[0].fileName);
   }
 
   /* ************************************************** */

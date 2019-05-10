@@ -15,9 +15,9 @@ export const imagesDataReducer = (
         ...reduxState,
         galleries: {
           ...reduxState.galleries,
-          [action.payload.galleryName]: action.payload.photos
+          [action.payload.galleryFileName]: action.payload.photos
         },
-        activeGallery: action.payload.galleryName
+        activeGallery: action.payload.galleryFileName
       };
 
     default:

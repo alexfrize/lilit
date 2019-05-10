@@ -23,7 +23,7 @@ class Menu extends Component {
   /* ************************************************** */
 
   setActiveMenuIndex(index) {
-    this.props.loadGallery(menuItems[index]);
+    this.props.loadGallery(menuItems[index].fileName);
 
     this.setState({
       activeMenuItemIndex: index
@@ -38,12 +38,12 @@ class Menu extends Component {
     };
 
     let menuItemsJSX = menuItems.map((menuItem, index) => (
-      <li key={`li-${menuItem}`}>
+      <li key={`li-${menuItem.name}`}>
         <p
           onClick={() => this.setActiveMenuIndex(index)}
           className={getCSSClassName(index)}
         >
-          {menuItem}
+          {menuItem.name}
         </p>
       </li>
     ));

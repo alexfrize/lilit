@@ -1,29 +1,30 @@
 import { SET_GALLERY } from '../constants/imagesDataConstants';
 
-export const loadGallery = galleryName => {
+export const loadGallery = galleryFileName => {
   return async (dispatch, getState) => {
     let data;
-
-    if (getState().galleries[galleryName]) {
-      data = getState().galleries[galleryName];
+    console.log('galleryName', galleryFileName);
+    if (getState().galleries[galleryFileName]) {
+      console.warn('already loaded');
+      data = getState().galleries[galleryFileName];
     } else {
       let res = await fetch(
-        `${process.env.PUBLIC_URL}/json/${galleryName.toLowerCase()}.json`
+        `${process.env.PUBLIC_URL}/json/${galleryFileName.toLowerCase()}.json`
       );
       data = await res.json();
     }
-
-    dispatch(setGallery(galleryName, data));
+    console.log('data', data);
+    dispatch(setGallery(galleryFileName, data));
   };
 };
 /* ************************************************** */
 
-const setGallery = (galleryName, photos) => {
+const setGallery = (galleryFileName, photos) => {
   return {
     type: SET_GALLERY,
     payload: {
       photos,
-      galleryName
+      galleryFileName
     }
   };
 };
