@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 import { loadGallery } from '../../redux/actions/imagesDataActions';
+import RenderImage from './RenderImage';
 import menuItems from '../Menu/menu-items';
 import { connect } from 'react-redux';
 import './PhotoGallery.scss';
@@ -83,7 +84,11 @@ class PhotoGallery extends Component {
       <div className="PhotoGallery">
         {this.state.photos && (
           <React.Fragment>
-            <Gallery photos={this.state.photos} onClick={this.openLightbox} />
+            <Gallery
+              photos={this.state.photos}
+              onClick={this.openLightbox}
+              renderImage={RenderImage}
+            />
             <Lightbox
               images={this.state.photos}
               onClose={this.closeLightbox}
