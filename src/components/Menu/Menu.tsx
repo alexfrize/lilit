@@ -7,7 +7,11 @@ import { connect } from 'react-redux';
 
 import './Menu.scss';
 
-class Menu extends Component {
+interface IMenu {
+  loadGallery(loadGallery: string): any;
+}
+
+class Menu extends Component<IMenu> {
   state = {
     activeMenuItemIndex: 0,
     galleries: []
@@ -15,14 +19,14 @@ class Menu extends Component {
 
   /* ************************************************** */
 
-  constructor(props) {
+  constructor(props: IMenu) {
     super(props);
     this.setActiveMenuIndex = this.setActiveMenuIndex.bind(this);
   }
 
   /* ************************************************** */
 
-  setActiveMenuIndex(index) {
+  setActiveMenuIndex(index: number) {
     this.props.loadGallery(menuItems[index].fileName);
 
     this.setState({
@@ -33,7 +37,7 @@ class Menu extends Component {
   /* ************************************************** */
 
   renderMenuItems() {
-    const getCSSClassName = index => {
+    const getCSSClassName = (index: number) => {
       return index === this.state.activeMenuItemIndex ? 'active' : '';
     };
 
