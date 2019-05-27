@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent } from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 import { loadGallery } from '../../redux/actions/imagesDataActions';
 import RenderImage from './RenderImage';
 import menuItems from '../Menu/menu-items';
 import { connect } from 'react-redux';
+import IReduxState from '../../redux/interfaces/IReduxState';
+
 import './PhotoGallery.scss';
 
-class PhotoGallery extends Component {
+interface IPhotoGalleryProps {
+  loadGallery(galleryFileName: string): any;
+}
+
+class PhotoGallery extends Component<IPhotoGalleryProps> {
   state = {
     photos: [],
-    currentImage: 0
+    currentImage: 0,
+    lightboxIsOpen: false
   };
 
   /* ************************************************** */
 
-  constructor() {
-    super();
+  constructor(props: IPhotoGalleryProps) {
+    super(props);
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
     this.gotoNext = this.gotoNext.bind(this);
@@ -25,7 +32,7 @@ class PhotoGallery extends Component {
 
   /* ************************************************** */
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps: any, prevState: any) {
     if (prevState.activeGallery === nextProps.activeGallery) {
       return { ...prevState, ...nextProps };
     }
@@ -45,7 +52,7 @@ class PhotoGallery extends Component {
 
   /* ************************************************** */
 
-  openLightbox(event, obj) {
+  openLightbox(event: SyntheticEvent, obj: any) {
     this.setState({
       currentImage: obj.index,
       lightboxIsOpen: true
@@ -106,10 +113,10 @@ class PhotoGallery extends Component {
 
 /* ************************************************** */
 
-function mapStateToProps(reduxState) {
+function mapStateToProps(reduxState: IReduxState) {
   return {
-    galleries: reduxState.galleries,
-    activeGallery: reduxState.activeGallery
+    galleries: reduxState.imagesDataReducer.galleries,
+    activeGallery: reduxState.imagesDataReducer.activeGallery
   };
 }
 

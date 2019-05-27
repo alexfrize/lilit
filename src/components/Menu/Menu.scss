@@ -1,4 +1,5 @@
 @import '../../scss/breakpoints.scss';
+@import '../../scss/fonts.scss';
 
 .Menu {
   .logo-container {
@@ -13,7 +14,7 @@
     text-transform: uppercase;
 
     font: {
-      family: 'OratorStd';
+      family: $orator;
       size: 24px;
     }
     text-align: center;
@@ -45,11 +46,11 @@
 
       li {
         font: {
-          family: 'OratorStd';
+          family: $orator;
           size: 18px;
         }
 
-        p {
+        .link {
           margin: 0;
           padding: 0;
           transition: 0.5s;

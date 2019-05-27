@@ -1,12 +1,13 @@
 import { SET_GALLERY } from '../constants/imagesDataConstants';
 
-export const loadGallery = galleryFileName => {
-  return async (dispatch, getState) => {
+export const loadGallery = (galleryFileName: string) => {
+  return async (dispatch: any, getState: any) => {
     let data;
     console.log('galleryName', galleryFileName);
-    if (getState().galleries[galleryFileName]) {
+    const cachedData = getState().imagesDataReducer.galleries[galleryFileName];
+    if (cachedData) {
       console.warn('already loaded');
-      data = getState().galleries[galleryFileName];
+      data = cachedData;
     } else {
       let res = await fetch(
         `${process.env.PUBLIC_URL}/json/${galleryFileName.toLowerCase()}.json`
@@ -19,7 +20,7 @@ export const loadGallery = galleryFileName => {
 };
 /* ************************************************** */
 
-const setGallery = (galleryFileName, photos) => {
+const setGallery = (galleryFileName: string, photos: any) => {
   return {
     type: SET_GALLERY,
     payload: {

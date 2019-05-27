@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import logo from './images/logo.jpg';
 import MenuIcons from './MenuIcons';
 import menuItems from './menu-items';
-import { loadGallery } from '../../redux/actions/imagesDataActions';
+import IMenuItem from '../../redux/interfaces/IMenuItem';
+import { activateMenuItem } from '../../redux/actions/menuActions';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Contact from '../pages/Contact';
 
 import './Menu.scss';
 
-interface IMenu {
-  loadGallery(loadGallery: string): any;
+interface IMenuProps {
+  activateMenuItem(menuItem: IMenuItem): any;
 }
 
-class Menu extends Component<IMenu> {
+class Menu extends Component<IMenuProps> {
   state = {
     activeMenuItemIndex: 0,
     galleries: []
@@ -19,7 +22,7 @@ class Menu extends Component<IMenu> {
 
   /* ************************************************** */
 
-  constructor(props: IMenu) {
+  constructor(props: IMenuProps) {
     super(props);
     this.setActiveMenuIndex = this.setActiveMenuIndex.bind(this);
   }
@@ -27,7 +30,7 @@ class Menu extends Component<IMenu> {
   /* ************************************************** */
 
   setActiveMenuIndex(index: number) {
-    this.props.loadGallery(menuItems[index].fileName);
+    this.props.activateMenuItem(menuItems[index]);
 
     this.setState({
       activeMenuItemIndex: index
@@ -38,17 +41,18 @@ class Menu extends Component<IMenu> {
 
   renderMenuItems() {
     const getCSSClassName = (index: number) => {
-      return index === this.state.activeMenuItemIndex ? 'active' : '';
+      return index === this.state.activeMenuItemIndex ? 'link active' : 'link';
     };
 
     let menuItemsJSX = menuItems.map((menuItem, index) => (
       <li key={`li-${menuItem.name}`}>
-        <p
+        <Link
+          to={menuItem.url}
           onClick={() => this.setActiveMenuIndex(index)}
           className={getCSSClassName(index)}
         >
           {menuItem.name}
-        </p>
+        </Link>
       </li>
     ));
 
@@ -59,19 +63,22 @@ class Menu extends Component<IMenu> {
 
   render() {
     return (
-      <div className="Menu">
-        <div className="logo-container">
-          <img src={logo} className="logo-img" alt="Lilit Grigoryants" />
+      <Router>
+        <div className="Menu">
+          <div className="logo-container">
+            <img src={logo} className="logo-img" alt="Lilit Grigoryants" />
+          </div>
+          <h1 className="menu-title">
+            Lilit
+            <span>Grigoryants</span>
+          </h1>
+          <nav className="menu-items">
+            <ul>{this.renderMenuItems()}</ul>
+          </nav>
+          <MenuIcons />
         </div>
-        <h1 className="menu-title">
-          Lilit
-          <span>Grigoryants</span>
-        </h1>
-        <nav className="menu-items">
-          <ul>{this.renderMenuItems()}</ul>
-        </nav>
-        <MenuIcons />
-      </div>
+        <Route path="/contact/" component={Contact} />
+      </Router>
     );
   }
 }
@@ -80,5 +87,5 @@ class Menu extends Component<IMenu> {
 
 export default connect(
   null,
-  { loadGallery }
+  { activateMenuItem }
 )(Menu);

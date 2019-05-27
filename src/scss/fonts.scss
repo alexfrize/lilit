@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'OratorStd';
-  src: url('./fonts/oratorstd.eot');
-  src: url('./fonts/oratorstd.eot') format('embedded-opentype'),
-    url('./fonts/oratorstd.woff2') format('woff2'),
-    url('./fonts/oratorstd.woff') format('woff'),
-    url('./fonts/oratorstd.ttf') format('truetype'),
-    url('./fonts/oratorstd.svg#oratorstd') format('svg');
+  src: url('/fonts/oratorstd.eot');
+  src: url('/fonts/oratorstd.eot') format('embedded-opentype'),
+    url('/fonts/oratorstd.woff2') format('woff2'),
+    url('/fonts/oratorstd.woff') format('woff'),
+    url('/fonts/oratorstd.ttf') format('truetype'),
+    url('/fonts/oratorstd.svg#oratorstd') format('svg');
 }
 
 $orator: 'OratorStd';
