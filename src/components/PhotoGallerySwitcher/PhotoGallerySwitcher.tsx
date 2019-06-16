@@ -1,11 +1,10 @@
 import React, { Component, SyntheticEvent } from 'react';
 import Gallery from 'react-photo-gallery';
-import Lightbox from 'react-images';
-import { loadGallery } from '../../redux/actions/imagesDataActions';
-import RenderImage from './RenderImage';
+import RenderImage from './../PhotoGallery/RenderImage';
 import menuItems from '../Menu/menu-items';
 import { PHOTO_GALLERY } from '../../redux/constants/displayModeConstants';
 import { activateMenuItem } from '../../redux/actions/menuActions';
+import { loadGallery } from '../../redux/actions/imagesDataActions';
 import IMenuItem from '../../redux/interfaces/IMenuItem';
 import { connect } from 'react-redux';
 import IReduxState from '../../redux/interfaces/IReduxState';
@@ -20,8 +19,6 @@ interface IPhotoGalleryProps {
 class PhotoGallery extends Component<IPhotoGalleryProps> {
   state = {
     photos: []
-    // currentImage: 0,
-    // lightboxIsOpen: false
   };
 
   /* ************************************************** */
@@ -70,13 +67,11 @@ class PhotoGallery extends Component<IPhotoGalleryProps> {
     return (
       <div className="PhotoGallerySwitcher">
         {this.state.photos && (
-          <React.Fragment>
-            <Gallery
-              photos={this.state.photos}
-              onClick={this.changeGallery}
-              renderImage={RenderImage}
-            />
-          </React.Fragment>
+          <Gallery
+            photos={this.state.photos}
+            onClick={this.changeGallery}
+            renderImage={RenderImage}
+          />
         )}
       </div>
     );
