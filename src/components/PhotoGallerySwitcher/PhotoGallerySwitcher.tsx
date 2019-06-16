@@ -4,30 +4,31 @@ import Lightbox from 'react-images';
 import { loadGallery } from '../../redux/actions/imagesDataActions';
 import RenderImage from './RenderImage';
 import menuItems from '../Menu/menu-items';
+import { PHOTO_GALLERY } from '../../redux/constants/displayModeConstants';
+import { activateMenuItem } from '../../redux/actions/menuActions';
+import IMenuItem from '../../redux/interfaces/IMenuItem';
 import { connect } from 'react-redux';
 import IReduxState from '../../redux/interfaces/IReduxState';
 
-import './PhotoGallery.scss';
+import './PhotoGallerySwitcher.scss';
 
 interface IPhotoGalleryProps {
   loadGallery(galleryFileName: string): any;
+  activateMenuItem(menuItem: IMenuItem): any;
 }
 
 class PhotoGallery extends Component<IPhotoGalleryProps> {
   state = {
-    photos: [],
-    currentImage: 0,
-    lightboxIsOpen: false
+    photos: []
+    // currentImage: 0,
+    // lightboxIsOpen: false
   };
 
   /* ************************************************** */
 
   constructor(props: IPhotoGalleryProps) {
     super(props);
-    this.closeLightbox = this.closeLightbox.bind(this);
-    this.openLightbox = this.openLightbox.bind(this);
-    this.gotoNext = this.gotoNext.bind(this);
-    this.gotoPrevious = this.gotoPrevious.bind(this);
+    this.changeGallery = this.changeGallery.bind(this);
   }
 
   /* ************************************************** */
@@ -46,64 +47,34 @@ class PhotoGallery extends Component<IPhotoGalleryProps> {
 
   /* ************************************************** */
 
+  changeGallery(event: SyntheticEvent, obj: any) {
+    console.log('obj-gallery', obj);
+    const menuItem = {
+      type: PHOTO_GALLERY,
+      fileName: obj.photo.galleryfilename,
+      name: obj.photo.galleryfilename,
+      url: obj.photo.galleryfilename
+    };
+
+    this.props.activateMenuItem(menuItem);
+  }
+  /* ************************************************** */
+
   componentDidMount() {
     this.props.loadGallery(menuItems[0].fileName);
   }
 
   /* ************************************************** */
 
-  openLightbox(event: SyntheticEvent, obj: any) {
-    console.log('obj', obj);
-    this.setState({
-      currentImage: obj.index,
-      lightboxIsOpen: true
-    });
-  }
-
-  /* ************************************************** */
-
-  closeLightbox() {
-    this.setState({
-      currentImage: 0,
-      lightboxIsOpen: false
-    });
-  }
-
-  /* ************************************************** */
-
-  gotoPrevious() {
-    this.setState({
-      currentImage: this.state.currentImage - 1
-    });
-  }
-
-  /* ************************************************** */
-
-  gotoNext() {
-    this.setState({
-      currentImage: this.state.currentImage + 1
-    });
-  }
-
-  /* ************************************************** */
-
   render() {
     return (
-      <div className="PhotoGallery">
+      <div className="PhotoGallerySwitcher">
         {this.state.photos && (
           <React.Fragment>
             <Gallery
               photos={this.state.photos}
-              onClick={this.openLightbox}
+              onClick={this.changeGallery}
               renderImage={RenderImage}
-            />
-            <Lightbox
-              images={this.state.photos}
-              onClose={this.closeLightbox}
-              onClickPrev={this.gotoPrevious}
-              onClickNext={this.gotoNext}
-              currentImage={this.state.currentImage}
-              isOpen={this.state.lightboxIsOpen}
             />
           </React.Fragment>
         )}
@@ -123,5 +94,5 @@ function mapStateToProps(reduxState: IReduxState) {
 
 export default connect(
   mapStateToProps,
-  { loadGallery }
+  { loadGallery, activateMenuItem }
 )(PhotoGallery);

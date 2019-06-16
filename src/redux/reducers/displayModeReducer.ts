@@ -1,8 +1,11 @@
-import { SET_DISPLAY_MODE, GALLERY } from '../constants/displayModeConstants';
+import {
+  SET_DISPLAY_MODE,
+  PHOTO_GALLERY
+} from '../constants/displayModeConstants';
 import IDisplayModeState from '../interfaces/IDisplayModeState';
 
 const defaultState: IDisplayModeState = {
-  displayMode: GALLERY
+  displayMode: PHOTO_GALLERY
 };
 
 export const displayModeReducer = (state = defaultState, action: any) => {

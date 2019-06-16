@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import Menu from './Menu';
 import PhotoGallery from './PhotoGallery';
+import PhotoGallerySwitcher from './PhotoGallerySwitcher';
+// import VideoGallery from './VideoGallery';
 import { connect } from 'react-redux';
 import './App.scss';
 import IReduxState from '../redux/interfaces/IReduxState';
-import { GALLERY } from '../redux/constants/displayModeConstants';
+import {
+  PHOTO_GALLERY,
+  VIDEO_GALLERY,
+  PHOTO_GALLERY_SWITCHER
+} from '../redux/constants/displayModeConstants';
 
 const App = (props: any) => {
   return (
     <div className="App">
       <Menu />
-      {props.displayMode === GALLERY && <PhotoGallery />}
+      {props.displayMode === PHOTO_GALLERY && <PhotoGallery />}
+      {props.displayMode === PHOTO_GALLERY_SWITCHER && <PhotoGallerySwitcher />}
+      {/* {props.displayMode === VIDEO_GALLERY && <VideoGallery />} */}
     </div>
   );
 };

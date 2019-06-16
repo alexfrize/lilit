@@ -5,43 +5,43 @@ const menuItems: IMenuItem[] = [
     name: 'Illustrations',
     url: 'illustrations',
     fileName: 'illustrations',
-    type: 'gallery'
+    type: 'photo-gallery'
   },
   {
     name: 'Editorial',
     url: 'editorial',
     fileName: 'editorial',
-    type: 'gallery'
+    type: 'photo-gallery'
   },
   {
     name: 'Booklets&Books',
     url: 'booklets',
     fileName: 'booklets',
-    type: 'page'
+    type: 'photo-gallery-switcher'
   },
   {
     name: 'Garment Prints',
     url: 'garment',
     fileName: 'garment',
-    type: 'gallery'
+    type: 'photo-gallery'
   },
   {
     name: 'Packaging',
     url: 'packaging',
     fileName: 'packaging',
-    type: 'gallery'
+    type: 'photo-gallery'
   },
   {
     name: 'Sketchbook',
     url: 'sketchbooks',
     fileName: 'sketchbooks',
-    type: 'gallery'
+    type: 'photo-gallery'
   },
   {
     name: 'Logos',
     url: 'logos',
     fileName: 'logos',
-    type: 'gallery'
+    type: 'photo-gallery'
   },
   {
     name: 'Animations',

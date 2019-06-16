@@ -1,0 +1,32 @@
+[
+  {
+    "src": "/images/big/booklets/booklet00_title_fullsize.jpg",
+    "width": 1200,
+    "height": 900,
+    "galleryfilename": "booklet00"
+  },
+  {
+    "src": "/images/big/booklets/booklet01_title_fullsize.jpg",
+    "width": 1355,
+    "height": 900,
+    "galleryfilename": "booklet01"
+  },
+  {
+    "src": "/images/big/booklets/booklet02_title_fullsize.jpg",
+    "width": 900,
+    "height": 900,
+    "galleryfilename": "booklet02"
+  },
+  {
+    "src": "/images/big/booklets/booklet03_title_fullsize.jpg",
+    "width": 441,
+    "height": 900,
+    "galleryfilename": "booklet03"
+  },
+  {
+    "src": "/images/big/booklets/booklet04_title_fullsize.jpg",
+    "width": 900,
+    "height": 900,
+    "galleryfilename": "booklet04"
+  }
+]
