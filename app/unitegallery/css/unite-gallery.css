@@ -24,7 +24,9 @@
 .ug-videoplayer-wrapper video{
 	height:100%;
 	width:100%;
+	visibility: visible !important;
 }
+
 
 .---------General_Styles--------{}
 
@@ -113,7 +115,7 @@
 	position:absolute;
 	overflow:hidden;
 	z-index:1;
-	background-color: #000000;
+	background-color:#000000;
 }
 
 
@@ -481,7 +483,7 @@ img.ug-sepia-effect{
 
 
 .ug-gallery-wrapper .ug-textpanel-bg{
-	background-color: #000000;
+	background-color:#000000;
 	opacity:0.4;
 	filter: alpha(opacity = 40);
 	z-index:1;
@@ -501,7 +503,6 @@ img.ug-sepia-effect{
 
 .ug-gallery-wrapper .ug-textpanel-description{
 	font-size:14px;
-	color:white;
 	color:white;
 	text-align:left;
 	z-index:3;
@@ -780,9 +781,9 @@ img.ug-sepia-effect{
 	width:100%;
 	height:100%;
 	position:absolute;
-	background-color: #fff;
-	opacity:0.1; // by AF!
-	filter: alpha(opacity=10); // by AF!
+	background-color:#000000;
+	opacity:0.4;
+	filter: alpha(opacity=40);
 }
 
 
@@ -790,7 +791,7 @@ img.ug-sepia-effect{
 	z-index:1;
 	width:100%;
 	height:100%;
-    background-color: white; // by AF!
+    background-color:#000000;
     opacity:1;
 }
 
@@ -855,7 +856,7 @@ img.ug-sepia-effect{
 
 .ug-lightbox .ug-lightbox-numbers{
 	position:absolute;
-	color: black; // by AF
+	color:#e5e5e5;
 	font-size:12px;
 	top:14px;
 	left:8px;
@@ -872,14 +873,44 @@ img.ug-sepia-effect{
 .ug-lightbox .ug-textpanel-description{
 	font-size: 14px;
 	font-weight: normal;
-	color: black; /* edited by AF */
+	color: #e5e5e5;
 }
 
 .ug-lightbox-compact .ug-textpanel-title,
 .ug-lightbox-compact .ug-textpanel-description{
-	color: black; // by AF
+	color:#F3F3F3;
 	font-size: 16px;
 }
+
+.------------------LOADMORE_BUTTON---------------------{}
+
+.ug-loadmore-wrapper{
+	margin-top:20px;
+	text-align:center;	
+}
+
+.ug-loadmore-wrapper .ug-loadmore-button{
+	display:inline-block;
+	padding:5px;
+	border:1px solid #939393;
+	text-decoration:none;
+	color: #4F4F4F;
+}
+
+.ug-loadmore-wrapper .ug-loadmore-error{
+	color:red;
+}
+
+.ug-loadmore-wrapper .ug-loadmore-button:hover{
+	background-color:#F0F0F0;	
+	color:#515151;
+}
+
+.ug-loadmore-wrapper .ug-loadmore-loader{
+	color: #515151;
+}
+
+
 
 .------------------CATEGORY_TABS---------------------{}
 
