@@ -1,185 +1,182 @@
 body {
-	margin-top: 30px;
-	font: {
-		size: 18px;
-		family: $orator;
-	}
-	color: black;
+  margin-top: 30px;
+  font: {
+    size: 18px;
+    family: $orator;
+  }
+  color: black;
 }
 
 #gallery {
-
 }
 
 /* ======= Стили меню ======= */
 .menu {
-	@extend .col-sm-2, .col-md-2;
-	.menu__logo {
-		text-align: center;
-		.menu__logo__img {
-			@extend .center-block, .img-responsive;
-			width: 60px;
-		}
-	}
+  @extend .col-sm-2, .col-md-2;
+  .menu__logo {
+    text-align: center;
+    .menu__logo__img {
+      @extend .center-block, .img-responsive;
+      width: 60px;
+    }
+  }
 
-	.menu__title__h1 {
-		text-transform: uppercase;
-		font: {
-			family: $orator;
-			size: 24px;
-		}
-		text-align: center;
-		span {
-			display: block;
-			font-size: 16px;
-		}
-	}
+  .menu__title__h1 {
+    text-transform: uppercase;
+    font: {
+      family: $openSans;
+      size: 24px;
+    }
+    text-align: center;
+    span {
+      display: block;
+      font-size: 16px;
+    }
+  }
 
-	.menu__menu {
-		margin-top: 30px;
-		margin-bottom: 30px;
-		ul {
-			
-			text-align: center;
-			@include breakpoint($smSize) {
-				text-align: left;
-			}
-			padding-left: 0px;
-			@include breakpoint($lgSize) {
-				padding-left: 10px;
-			}
-			list-style: none;
-			li {
-				font: {
-					family: $orator;
-					size: 18px;
-				}
-				a {
-					@extend %transition;
-					text-transform: uppercase;
-					color: black;
-					text-decoration: none;
-						&:hover, &:active, &:focus {
-							color: #b0b0b0;
-						}
-						&.active {
-							color: red;
-						}
-				}
-
-			}
-		}
-		
-	}
-	.menu__icons {
-		margin-bottom: 30px;
-		margin-left: 0;
-		@include breakpoint($lgSize) {
-			margin-left: 10px;
-		}
-		table {
-			display: table;
-			margin: 0 auto;
-			@include breakpoint($smSize) {
-				margin: 0;
-			}
-			tr > td {
-				width: 30%;
-				text-align: center;
-				@include breakpoint($smSize) {
-					text-align: left;
-				}
-				img {
-					@extend %transition;
-					width: 24px;
-					opacity: 1;
-					&:hover {
-						opacity: 0.5;
-					}
-				}
-			}
-		}
-	}
+  .menu__menu {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    ul {
+      text-align: center;
+      @include breakpoint($smSize) {
+        text-align: left;
+      }
+      padding-left: 0px;
+      @include breakpoint($lgSize) {
+        padding-left: 10px;
+      }
+      list-style: none;
+      li {
+        font: {
+          family: $orator;
+          size: 18px;
+        }
+        a {
+          @extend %transition;
+          text-transform: uppercase;
+          color: black;
+          text-decoration: none;
+          &:hover,
+          &:active,
+          &:focus {
+            color: #b0b0b0;
+          }
+          &.active {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+  .menu__icons {
+    margin-bottom: 30px;
+    margin-left: 0;
+    @include breakpoint($lgSize) {
+      margin-left: 10px;
+    }
+    table {
+      display: table;
+      margin: 0 auto;
+      @include breakpoint($smSize) {
+        margin: 0;
+      }
+      tr > td {
+        width: 30%;
+        text-align: center;
+        @include breakpoint($smSize) {
+          text-align: left;
+        }
+        img {
+          @extend %transition;
+          width: 24px;
+          opacity: 1;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
 }
 
-
-
-
 .image-gallery {
-	@extend .col-sm-10, .col-md-10;
-	margin-bottom: 30px;
-	padding-left: 0;
-	@include breakpoint($smSize) {
-		padding-left: 30px;	
-	}
-	padding-left: 0;
+  @extend .col-sm-10, .col-md-10;
+  margin-bottom: 30px;
+  padding-left: 0;
+  @include breakpoint($smSize) {
+    padding-left: 30px;
+  }
+  padding-left: 0;
 }
 
 .booklets {
-	@extend .col-sm-10, .col-md-10;
-	margin-top: 30px;
-	@include breakpoint($smSize) {
-		margin-top: 80px;
-	}	
-	margin-bottom: 30px;
-	padding-left: 0;
-	@include breakpoint($smSize) {
-		padding-left: 30px;	
-	}
-	.booklets__item {
-		@extend .col-sm-4, .col-md-4;
-		img {
-			@extend %transition;
-			opacity: 1;
-			&:hover {
-				opacity: 0.7;
-			}
-		}
-	}
+  @extend .col-sm-10, .col-md-10;
+  margin-top: 30px;
+  @include breakpoint($smSize) {
+    margin-top: 80px;
+  }
+  margin-bottom: 30px;
+  padding-left: 0;
+  @include breakpoint($smSize) {
+    padding-left: 30px;
+  }
+  .booklets__item {
+    @extend .col-sm-4, .col-md-4;
+    img {
+      @extend %transition;
+      opacity: 1;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 }
 
 .animation {
-	@extend .col-sm-10, .col-md-10;
-	margin-top: 30px;
-	@include breakpoint($mdSize) {
-		margin-top: 150px;
-	}	
-	padding-left: 0;
-	@include breakpoint($smSize) {
-		padding-left: 30px;	
-	}	
+  @extend .col-sm-10, .col-md-10;
+  margin-top: 30px;
+  @include breakpoint($mdSize) {
+    margin-top: 150px;
+  }
+  padding-left: 0;
+  @include breakpoint($smSize) {
+    padding-left: 30px;
+  }
 }
 
 .contacts {
-	@extend .col-sm-10, .col-md-10;
-	margin-top: 30px;
-	@include breakpoint($smSize) {
-		margin-top: 157px;
-	}
-	margin-bottom: 30px;
-	padding-left: 0;
-	@include breakpoint($smSize) {
-		padding-left: 30px;	
-	}
-	padding-left: 0;
-	.contacts__text {
-		text-transform: uppercase;
-		font-family: $orator;
-		font-size: 16px;
-		@include breakpoint($xsSize) {
-			font-size: 18px;
-		}
-		text-align: center;
-		@include breakpoint($smSize) {
-			text-align: left;
-		}		
-		a {
-			@extend %transition;
-			color: #b0b0b0;
-			text-decoration: none;
-			&:hover, &:active, &:focus {
-				color: red;	
-			}
-		}
-	}
+  @extend .col-sm-10, .col-md-10;
+  margin-top: 30px;
+  @include breakpoint($smSize) {
+    margin-top: 157px;
+  }
+  margin-bottom: 30px;
+  padding-left: 0;
+  @include breakpoint($smSize) {
+    padding-left: 30px;
+  }
+  padding-left: 0;
+  .contacts__text {
+    text-transform: uppercase;
+    font-family: $orator;
+    font-size: 16px;
+    @include breakpoint($xsSize) {
+      font-size: 18px;
+    }
+    text-align: center;
+    @include breakpoint($smSize) {
+      text-align: left;
+    }
+    a {
+      @extend %transition;
+      color: #b0b0b0;
+      text-decoration: none;
+      &:hover,
+      &:active,
+      &:focus {
+        color: red;
+      }
+    }
+  }
 }

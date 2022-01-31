@@ -1,21 +1,16 @@
 {
-  "name": "gulp-template",
+  "name": "website-for-lilit",
   "version": "1.0.0",
   "description": "Project template",
   "main": "index.html",
-  "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "browser-sync": "^2.18.8",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^6.7.6",
-    "gulp-postcss": "^6.3.0"
-  },
   "scripts": {
+    "start": "node-sass -w app/scss -o app/css",
+    "transform-css": "node-sass app/scss -o app/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
 }
