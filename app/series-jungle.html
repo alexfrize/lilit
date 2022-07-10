@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lilit Grigoryants - Contact</title>
+    <title>Lilit Grigoryants - Series</title>
 
     <!-- === Стили и скрипты галереи === -->
     <script
@@ -49,13 +49,14 @@
                 <a href="product-design.html">Product design</a>
               </li>
               <li><a href="index.html">Patterns</a></li>
-
-              <li><a href="series.html">Illustration Series</a></li>
+              <li>
+                <a href="series.html" class="active">Illustration Series</a>
+              </li>
               <li><a href="covers.html">Covers</a></li>
 
               <li><a href="graphic-design.html">Graphic&nbsp;design</a></li>
 
-              <li><a href="contact.html" class="active">Contact</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </nav>
           <div class="menu__icons">
@@ -73,19 +74,43 @@
           </div>
         </div>
 
-        <div class="contacts">
-          <div class="row">
-            <div class="col-md-12">
-              <p class="contacts__text">
-                e-mail:
-                <a href="mailto:lilitgrigoryants@gmail.com" target="_blank"
-                  >lilitgrigoryants@gmail.com</a
-                >
-              </p>
-            </div>
+        <div class="image-gallery">
+          <div id="gallery-series-jungle" style="display: none">
+            <img
+              alt=""
+              data-image="images/big/series/series-jungle/series-jungle01.jpg"
+              data-description=""
+              style="display: none"
+            />
+            <img
+              alt=""
+              data-image="images/big/series/series-jungle/series-jungle02.jpg"
+              data-description=""
+              style="display: none"
+            />
+            <img
+              alt=""
+              data-image="images/big/series/series-jungle/series-jungle03.jpg"
+              data-description=""
+              style="display: none"
+            />
+            <img
+              alt=""
+              data-image="images/big/series/series-jungle/series-jungle04.jpg"
+              data-description=""
+              style="display: none"
+            />
           </div>
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        jQuery("#gallery-series-jungle").unitegallery({
+          lightbox_type: "compact",
+        });
+      });
+    </script>
   </body>
 </html>
